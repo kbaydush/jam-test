@@ -1,0 +1,32 @@
+
+<table>
+    {% for player in players%}
+        <tr>
+            <td>ExternalId<td>
+            <td>Username<td>
+            <td>Music Instrument<td>
+            <td>dateOfBirth</td>
+            <td>sex</td>
+            <td>country</td>
+            <td>notes</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ player.externalId }}<td>
+            <td>{{ player.username }}<td>
+            <td>{{ player.musicInstrument }}<td>
+            <td>{{ player.dateOfBirth|date('Y-m-d') }}<td>
+            <td>{{ player.sex }}<td>
+            <td>{{ player.country }}<td>
+            <td>{{ player.notes }}<td>
+            <td>
+                <form action="http://localhost:8000/invites/1/accept.html" method="post">
+                    <input name="accept" type="hidden" value="1">
+                    <input type="submit" value="Submit">
+                </form>
+
+
+            </td>
+        </tr>
+    {%endfor%}
+</table>

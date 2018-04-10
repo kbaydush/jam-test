@@ -1,0 +1,28 @@
+
+<table>
+    {% for invite in invites%}
+        <tr>
+            <td>Sender Id<td>
+            <td>Invited Id<td>
+            <td>Status<td>
+            <td>time</td>
+            <td>message</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ invite.senderId }}<td>
+            <td>{{ invite.invitedId }}<td>
+            <td>{{ invite.status }}<td>
+            <td>{{ invite.time|date('Y-m-d h:i:s') }}<td>
+            <td>{{ invite.message }}<td>
+            <td>
+                <form action="http://localhost:8000/invites/1/accept.html" method="post">
+                    <input name="accept" type="hidden" value="1">
+                    <input type="submit" value=" Apply">
+                </form>
+
+
+            </td>
+        </tr>
+    {%endfor%}
+</table>

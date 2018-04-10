@@ -1,0 +1,4 @@
+inv:
+    resource: "@UserBundle/Controller/"
+    type: rest
+    defaults: {_format: json}

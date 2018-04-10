@@ -1,0 +1,31 @@
+InviteVendor\UserBundle\Entity\Invite:
+    codeception-invite-1:
+        senderId: '1'
+        invitedId: '2'
+        status: 'in progress'
+        time: '<(new DateTime("2018-12-06 01:20:21"))>'
+        message: 'Would you like for JAM ?'
+    codeception-invite-2:
+        senderId: '1'
+        invitedId: '3'
+        status: 'applied'
+        time: '<(new DateTime("2018-12-06 01:20:21"))>'
+        message: 'Would you like for JAM ?'
+    codeception-invite-3:
+        senderId: '1'
+        invitedId: '4'
+        status: 'in progress'
+        time: '<(new DateTime("2018-12-06 01:20:21"))>'
+        message: 'Would you like for JAM ?'
+    codeception-invite-4:
+        senderId: '1'
+        invitedId: '5'
+        status: 'in progress'
+        time: '<(new DateTime("2018-12-06 01:20:21"))>'
+        message: 'Would you like for JAM ?'
+    codeception-invite-5:
+        senderId: '1'
+        invitedId: '6'
+        status: 'in progress'
+        time: '<(new DateTime("2018-12-06 01:20:21"))>'
+        message: 'Would you like for JAM ?'

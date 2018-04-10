@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}UserBundle:User:list{% endblock %}
+
+{% block body %}
+    <form id="accept" action="" method="post">
+        <div class="form-group">
+            <input type="email" name="userEmail" class="form-control input-lg" placeholder="Enter your e-mail (es.: your.name@example.com">
+        </div>
+        <button type="submit" name="submit" class="btn btn-default btn-lg">Submit</button>
+    </form>
+{% endblock %}

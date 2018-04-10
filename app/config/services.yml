@@ -1,0 +1,84 @@
+services:
+
+  # Repositories
+
+  app.repository.user:
+    class: UserBundle\Repository\UserRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments: ['InviteVendor\UserBundle:User']
+
+  app.repository.user_session:
+    class: UserBundle\Repository\UserSessionRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments: ['InviteVendor\UserBundle:UserSession']
+
+  app.repository.invite:
+    class: UserBundle\Repository\InviteRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments: ['InviteVendor\UserBundle:Invite']
+
+  app.repository.invite_session:
+    class: UserBundle\Repository\InviteSessionRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments: ['InviteVendor\UserBundle:InviteSession']
+
+  # Managers
+
+  app.manager.user:
+    class: InviteVendor\UserBundle\Manager\UserManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@jms_serializer'
+
+  app.manager.invite:
+    class: InviteVendor\UserBundle\Manager\InviteManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@jms_serializer'
+
+  app.manager.user_session:
+    class: UserBundle\Manager\UserSessionManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@jms_serializer'
+
+  app.manager.invite_session:
+    class: UserBundle\Manager\InviteSessionManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@jms_serializer'
+
+  # Services
+
+  app.service.user:
+    class: InviteVendor\UserBundle\Service\User
+    arguments:
+      - '@app.manager.user'
+      - '@app.service.json_patcher'
+      - '@validator'
+      - '@jms_serializer'
+
+  app.service.invite:
+    class: InviteVendor\UserBundle\Service\Invite
+    arguments:
+      - '@app.manager.invite'
+      - '@app.service.json_patcher'
+      - '@validator'
+      - '@jms_serializer'
+
+  app.service.user_session:
+    class: InviteVendor\UserBundle\Service\UserSession
+    arguments:
+      - '@app.manager.user_session'
+      - '@validator'
+      - '@jms_serializer'
+
+  app.service.invite_session:
+    class: InviteVendor\UserBundle\Service\InviteSession
+    arguments:
+      - '@app.manager.invite_session'
+      - '@validator'
+      - '@jms_serializer'
+
+  app.service.json_patcher:
+    class: InviteVendor\UserBundle\Service\JsonPatcher
